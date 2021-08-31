@@ -10,8 +10,9 @@
 
 import * as Blockly from 'blockly';
 import {toolboxCategories, createPlayground} from '@blockly/dev-tools';
-import Theme from '../src/index';
+import {initTheme} from '../src/index';
 
+const Seshat = initTheme(Blockly);
 
 /**
  * Create a workspace.
@@ -27,7 +28,7 @@ function createWorkspace(blocklyDiv, options) {
 document.addEventListener('DOMContentLoaded', function() {
   const defaultOptions = {
     toolbox: toolboxCategories,
-    theme: Theme,
+    theme: Seshat,
   };
   createPlayground(document.getElementById('root'), createWorkspace,
       defaultOptions);
