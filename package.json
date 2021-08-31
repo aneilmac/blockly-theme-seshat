@@ -1,0 +1,60 @@
+{
+  "name": "@aneilmac/blockly-theme-seshat",
+  "version": "1.0.0",
+  "description": "The Seshat Blockly theme.",
+  "scripts": {
+    "audit:fix": "blockly-scripts auditFix",
+    "build": "blockly-scripts build",
+    "clean": "blockly-scripts clean",
+    "lint": "blockly-scripts lint",
+    "predeploy": "blockly-scripts predeploy",
+    "prepublishOnly": "npm run clean && npm run build",
+    "start": "blockly-scripts start",
+    "test": "blockly-scripts test"
+  },
+  "main": "./dist/index.js",
+  "module": "./src/index.js",
+  "unpkg": "./dist/index.js",
+  "author": "Archibald Neil MacDonald",
+  "keywords": [
+    "blockly",
+    "blockly-plugin",
+    "blockly-theme",
+    "seshat"
+  ],
+  "homepage": "",
+  "bugs": {},
+  "repository": {},
+  "license": "Apache-2.0",
+  "directories": {
+    "dist": "dist",
+    "src": "src"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "devDependencies": {
+    "@blockly/dev-scripts": "^1.2.10",
+    "@blockly/dev-tools": "^2.5.6",
+    "blockly": "^6.20210701.0"
+  },
+  "peerDependencies": {
+    "blockly": "^6.20210701.0"
+  },
+  "publishConfig": {},
+  "eslintConfig": {
+    "extends": "@blockly/eslint-config"
+  },
+  "engines": {
+    "node": ">=8.17.0"
+  },
+  "browserslist": [
+    "defaults",
+    "IE 11",
+    "IE_Mob 11"
+  ],
+  "dependencies": {
+    "webfontloader": "^1.6.28"
+  }
+}
