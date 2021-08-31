@@ -1,6 +1,6 @@
 {
   "name": "@aneilmac/blockly-theme-seshat",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The Seshat Blockly theme.",
   "scripts": {
     "audit:fix": "blockly-scripts auditFix",

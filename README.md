@@ -20,7 +20,9 @@ npm install @aneilmac/blockly-theme-seshat --save
 
 ```js
 import * as Blockly from 'blockly';
-import Seshat from 'blockly-theme-seshat';
+import {initTheme} from 'blockly-theme-seshat';
+
+const Seshat = initTheme(Blockly);
 
 Blockly.inject('blocklyDiv', {
   theme: Seshat,

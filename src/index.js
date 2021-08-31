@@ -1,13 +1,12 @@
-import * as Blockly from 'blockly';
 import * as WebFont from 'webfontloader';
 
-const fontStyle_ = {
+export const fontStyle = {
   'family': '\'Montserrat\', sans-serif',
   'size': 14,
   'weight': 400,
 };
 
-const componentStyles_ = {
+export const componentStyles = {
   'workspaceBackgroundColour': '#f8f8f8',
   'toolboxBackgroundColour': '#efefef',
   'toolboxForegroundColour': '#323232',
@@ -21,7 +20,7 @@ const componentStyles_ = {
   'cursorColor': '#ab3c16',
 };
 
-const blockStyles_ = {
+export const blockStyles = {
   'colour_blocks': {
     'colourPrimary': '#56a5d8',
   },
@@ -54,7 +53,7 @@ const blockStyles_ = {
   },
 };
 
-const categoryStyles_ = {
+export const categoryStyles = {
   'colour_category': {
     'colour': '#56a5d8',
   },
@@ -84,32 +83,46 @@ const categoryStyles_ = {
   },
 };
 
-const Seshat = Blockly.Theme.defineTheme('seshat', {
-  'blockStyles': blockStyles_,
-  'categoryStyles': categoryStyles_,
-  'componentStyles': componentStyles_,
-  'fontStyle': fontStyle_,
-  'startHats': true,
-});
+let Seshat = null;
 
-// Async load the font. If the font loads after the workspace theme has been
-// applied, we refresh the themes on all relevent workspaces to ensure the font
-// renders correctly. Note that otherwise strange margin/padding errors tend to
-// occur.
-WebFont.load({
-  google: {
-    families: ['Montserrat'],
-  },
-  fontactive: function() {
-    for (const w of Blockly.Workspace.getAll()) {
-      if (w.options.parentWorkspace) {
+/**
+ * Call with `initTheme(Blockly)`. Registers the new theme with Blockly
+ * and returns the Seshat theme. If Seshat has already been registered,
+ * will return the already registered theme.
+ *
+ * @param {Blockly} Blockly The blockly instance to define the Seshat theme.
+ * @return {Blockly.Theme} Seshat theme object.
+ */
+export function initTheme(Blockly) {
+  if (Seshat) {
+    return Seshat;
+  }
+
+  Seshat = Blockly.Theme.defineTheme('seshat', {
+    'blockStyles': blockStyles,
+    'categoryStyles': categoryStyles,
+    'componentStyles': componentStyles,
+    'fontStyle': fontStyle,
+    'startHats': true,
+  });
+
+  // Async load the font. If the font loads after the workspace theme has been
+  // applied, we refresh the themes on all relevent workspaces to ensure the
+  // font renders correctly. Note that otherwise strange margin/padding errors
+  // tend to occur.
+  WebFont.load({
+    google: {
+      families: ['Montserrat'],
+    },
+    fontactive: function() {
+      for (const w of Blockly.Workspace.getAll()) {
         const wSVG = w.options.parentWorkspace;
-        if (wSVG.getTheme() === Seshat) {
+        if (wSVG && wSVG.getTheme() === Seshat) {
           wSVG.refreshTheme();
         }
       }
-    }
-  },
-});
+    },
+  });
 
-export default Seshat;
+  return Seshat;
+}
