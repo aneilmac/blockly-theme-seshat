@@ -107,7 +107,7 @@ export function initTheme(Blockly) {
   });
 
   // Async load the font. If the font loads after the workspace theme has been
-  // applied, we refresh the themes on all relevent workspaces to ensure the
+  // applied, we refresh the themes on all relevant workspaces to ensure the
   // font renders correctly. Note that otherwise strange margin/padding errors
   // tend to occur.
   WebFont.load({
@@ -118,7 +118,7 @@ export function initTheme(Blockly) {
       for (const w of Blockly.Workspace.getAll()) {
         const wSVG = w.options.parentWorkspace;
         if (wSVG && wSVG.getTheme() === Seshat) {
-          wSVG.refreshTheme();
+          wSVG.getThemeManager().setTheme(Seshat);
         }
       }
     },
