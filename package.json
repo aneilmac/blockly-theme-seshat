@@ -22,9 +22,9 @@
     "blockly-theme",
     "seshat"
   ],
-  "homepage": "",
+  "homepage": "https://github.com/aneilmac/blockly-theme-seshat",
   "bugs": {},
-  "repository": {},
+  "repository": "https://github.com/aneilmac/blockly-theme-seshat",
   "license": "Apache-2.0",
   "directories": {
     "dist": "dist",
