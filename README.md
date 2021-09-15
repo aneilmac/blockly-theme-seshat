@@ -2,6 +2,8 @@
 
 A  clean, colorful [Blockly](https://www.npmjs.com/package/blockly) theme.
 
+![theme_screenshot](./screenshot.png)
+
 ## Installation
 
 ### Yarn
