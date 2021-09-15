@@ -1,4 +1,4 @@
-# @aneilmac/blockly-theme-seshat [![Built on Blockly](https://tinyurl.com/built-on-blockly)](https://github.com/google/blockly)
+# @aneilmac/blockly-theme-seshat [![Built on Blockly](https://tinyurl.com/built-on-blockly)](https://github.com/google/blockly) ![npm](https://img.shields.io/npm/v/@aneilmac/blockly-theme-seshat)
 
 A  clean, colorful [Blockly](https://www.npmjs.com/package/blockly) theme.
 
